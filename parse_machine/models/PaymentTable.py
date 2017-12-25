@@ -1,9 +1,9 @@
-# from sqlalchemy import bindparam, update, and_
+from sqlalchemy import bindparam, delete, and_, func
 
 from models.models import Payment
 from plugins.core.TableBase import TableBase
 from plugins.core.DbSqlAlchemy import DbSqlAlchemy
-# from plugins.core.SqlAlchemySession import SqlAlchemySession
+from plugins.core.SqlAlchemySession import SqlAlchemySession
 
 
 class PaymentTable(TableBase):
@@ -31,3 +31,8 @@ class PaymentTable(TableBase):
             print(row.market_name)
         db.disconnect()
 
+    def remove_payment(self, title):
+        sql_alchemy = SqlAlchemySession.get_session()
+        sql_alchemy.db.session.query(func.count(Payment.id)) \
+            .filter(Payment.title == title).delete()
+        sql_alchemy.db.session.commit()
