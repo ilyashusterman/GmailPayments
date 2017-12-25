@@ -5,7 +5,7 @@ import pandas
 
 from GmailApi import GmailApi
 from GmailParser import GmailParser
-from models.PaymentTable import PaymentTable
+# from parse_machine.models.PaymentTable import PaymentTable
 
 
 class PaymentParseMachine(object):
@@ -21,9 +21,12 @@ class PaymentParseMachine(object):
     def main(cls):
         parser = argparse.ArgumentParser()
         commands = parser.add_mutually_exclusive_group(required=True)
-        commands.add_argument('--process-payment', action='store_true')
+        commands.add_argument('--process-payment', action='store_true',
+                              help='Fetch messages from gmail and parse'
+                                   'payments and process them and '
+                                   'persist payment, user and platform')
         parser.add_argument('--dry-run', action='store_true',
-                            help='Parse the data but not effecting database')
+                            help='Parse payments but not effecting database')
         args = parser.parse_args()
         payment_machine = cls(args.dry_run)
         if args.apply_dynamic_margin:
@@ -46,7 +49,9 @@ class PaymentParseMachine(object):
                 'title': gmail_parser.get_title(message),
             }
             if not self.dry_run:
-                PaymentTable().persist_payment(payment_spec)
+                #TODO persist payment to db
+                # PaymentTable().persist_payment(payment_spec)
+                pass
             logging.info('added payment record={}'.format(payment_spec))
 
 
