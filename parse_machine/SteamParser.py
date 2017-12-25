@@ -15,8 +15,9 @@ class SteamParser(GmailParser):
         price_specs = self.html_specs[(self.html_specs['method'] == 'get') &
                                       (self.html_specs['name'] == 'price')]
         value = soup.find(price_specs['element_type'])
-        print(value)
-        return '129.991'
+        # print(value)
+        # TODO need to fix parse price from steam message from bs4
+        return '129.99'
 
     def extract_html(self, message):
         split_html = self.html_specs[

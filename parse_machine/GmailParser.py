@@ -6,12 +6,17 @@ class GmailParser(object):
         'list': [],
         'str': ''
     }
+    PLATFORMS ={
+        'Steam Support <noreply@steampowered.com>': 'Steam',
+        '': 'Ebay'
+    }
 
     def __init__(self, specs):
         self.specs = specs
 
     def get_platform(self, message):
-        return self.parse_message(message, 'platform')
+        platform = self.parse_message(message, 'platform')
+        return self.PLATFORMS[platform]
 
     def get_title(self, message):
         return self.parse_message(message, 'title')

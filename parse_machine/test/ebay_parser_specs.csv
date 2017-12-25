@@ -1,5 +1,5 @@
 message_key,payment_value,type,message_name,attribute
 payload-headers,user_email,list,To,email
-payload-headers,user_platform,list,From,platform
+snippet,user_platform,str,From,platform
 payload-headers,user_title,list,Subject,title
 
