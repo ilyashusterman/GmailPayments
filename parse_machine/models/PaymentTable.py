@@ -8,7 +8,7 @@ from plugins.core.SqlAlchemySession import SqlAlchemySession
 
 class PaymentTable(TableBase):
     TABLE_NAME = 'payment'
-    COLUMNS = ['id', 'title', 'price', 'date']
+    COLUMNS = ['id', 'title', 'price', 'date', 'user_id', 'platform_id']
 
     COLUMNS_NOT_NULL = []
     DATE_COLUMNS = [0]

@@ -8,6 +8,8 @@ class Payment(Base):
     __tablename__ = 'payment'
 
     id = Column(Integer, primary_key=True)
+    user_id = Column(Integer)
+    platform_id = Column(Integer)
     title = Column(String)
     price = Column(Float)
     date = Column(Date)
