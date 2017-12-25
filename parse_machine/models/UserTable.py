@@ -1,9 +1,9 @@
 from sqlalchemy import bindparam, delete, and_, func
 
-from models.models import Payment
-from plugins.core.TableBase import TableBase
-from plugins.core.DbSqlAlchemy import DbSqlAlchemy
-from plugins.core.SqlAlchemySession import SqlAlchemySession
+from parse_machine.models.models import Payment
+from parse_machine.plugins.core.TableBase import TableBase
+from parse_machine.plugins.core.DbSqlAlchemy import DbSqlAlchemy
+from parse_machine.plugins.core.SqlAlchemySession import SqlAlchemySession
 
 
 class UserTable(TableBase):
