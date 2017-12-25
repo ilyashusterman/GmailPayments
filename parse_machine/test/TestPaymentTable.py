@@ -25,7 +25,7 @@ class TestPaymentTable(TestCase):
 
     @skip
     def test_insert_payment_with_user_and_platform(self):
-        payment_spec_persist ={
+        payment_spec_persist = {
             'user_email': 'test@gmail.com',
             'payment_title': self.title,
             'payment_platform': 'Steam',
