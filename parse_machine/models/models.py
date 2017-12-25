@@ -12,11 +12,13 @@ class Payment(Base):
     price = Column(Float)
     date = Column(Date)
 
+
 class User(Base):
     __tablename = 'user'
 
     id = Column(Integer, primary_key=True)
     email = Column(String)
+
 
 class Platform(Base):
     __tablename = 'platform'
